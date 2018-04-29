@@ -1,5 +1,5 @@
 # Class Creating practice
-
+#note: libraries can be imported from the outside to use pieces of this script
 
 #Dog class test
 import random
@@ -32,26 +32,27 @@ class Corpus:
     
     def __init__(self, dataframe):
         self.dataframe=dataframe
-        
-    def column_length(self,column):
-        return len(self.dataframe[column])
     
     def Custom_Tokenize(self,column):
         corpus=[]
-        for i in range(self.dataframe[column]):
+        for i in range(self.dataframe[column].shape[0]):
             text=self.dataframe[column][i]
             text=re.sub('[^a-zA-z]',' ',text)
             text=text.lower()
             text=text.split()
             text=' '.join(text)
             corpus.append(text)
-            return corpus
+        return corpus
+    
+    
 
 import pandas as pd
 import re 
+import os
+os.chdir('D:\\MakeoverMondayDataFiles')
 data=pd.read_csv('data.csv',encoding='latin1')
 
-data=Corpus(data)
-data.column_length('Name')
+test=Corpus(data)
+test.column_length('Name')
 
-data.Custom_Tokenize('Text')
+corpus=test.Custom_Tokenize('Text')
