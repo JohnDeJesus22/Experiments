@@ -1,4 +1,4 @@
-#Interview Question solutions from question by Jose Portilla's python 
+#Interview Question solutions from questions by Jose Portilla's python 
 #data structures, algorithms and interviews course.
 
 #get missing number from a given array and the array without the missing value
