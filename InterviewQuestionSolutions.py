@@ -61,3 +61,84 @@ phrase_reverse(string)
 #alternate one line solution but cheating using python features
 def phrase_rev(string):
     return ' '.join(reversed(string.split()))
+
+##############################################################################
+
+#create a compressed string from a string of repeated letters (own solution)
+    
+def compressed(string):
+    
+    #edge case
+    if len(string)==0:
+        return
+    
+    count={}
+    
+    for letter in string:
+        if letter not in count:
+            count[letter]=1
+        else:
+            count[letter]+=1
+    
+    compressed_string=[]
+    
+    for letter in count:
+        compressed_string.append(letter)
+        compressed_string.append(str(count[letter]))
+        
+    return ''.join(compressed_string)
+
+string='AAAaaDDDDD'
+
+compressed(string)
+
+##############################################################################
+
+#given a string: If all characters are unique return true, else return false
+#(own solution)
+def unique_check(string):
+    
+    #edge cases
+    if len(string)==0:
+        return ''
+    
+    if len(string)==1:
+        return True
+    
+    count ={}
+    
+    for letter in string:
+        if letter not in count:
+            count[letter]=1
+        else:
+            count[letter]+=1
+    
+    for letter in count:
+        if count[letter]!=1:
+            return False
+    
+    return True
+
+string='abcde'
+stringTwo='aabcdeee'
+
+unique_check(string)
+unique_check(stringTwo)
+
+#instructor solutions
+
+def unique_check2(string):
+    return len(set(string))==len(string)
+
+def unique_check3(string):
+    
+    chars=set()
+    
+    for letter in string:
+        if letter in chars:
+            return False
+        else:
+            chars.add(letter)
+    
+    return True
+##############################################################################
