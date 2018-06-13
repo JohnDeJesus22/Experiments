@@ -1,4 +1,4 @@
-#Interview Question solutions from questions by Jose Portilla's python 
+#Interview Question solutions from question by Jose Portilla's python 
 #data structures, algorithms and interviews course.
 
 #get missing number from a given array and the array without the missing value
@@ -142,3 +142,75 @@ def unique_check3(string):
     
     return True
 ##############################################################################
+
+#create a function that takes a natural number n and adds all the numbers of n
+#and below up to 1 (own solution)
+    
+def cum_sum(n):
+    
+    if n<=0:
+        return
+    elif n==1:
+        return 1
+    else:
+        return n + cum_sum(n-1)
+    
+cum_sum(4)
+cum_sum(10)
+
+##############################################################################
+
+#function that sums all digits of a number (own solution)
+
+def digit_sum(n):
+    
+    if len(str(n))==1:
+        return n
+    else:
+        d= n%10
+        return d+ digit_sum(n//10)
+    
+digit_sum(4321)
+digit_sum(678)
+
+#############################################################################
+
+#reversing a string using recursion (own solution)
+
+def reverse(s):
+    
+    if len(s)==1:
+        return s
+    
+    else:
+        return s[-1]+reverse(s[:-1])
+
+reverse('hello')
+
+#code for testing provided by instructor
+from nose.tools import assert_equal
+
+class TestReverse(object):
+    
+    def test_rev(self,solution):
+        assert_equal(solution('hello'),'olleh')
+        assert_equal(solution('hello world'),'dlrow olleh')
+        assert_equal(solution('123456789'),'987654321')
+        
+        print('Passed All Tests')
+        
+test=TestReverse()
+test.test_rev(reverse)
+
+##############################################################################
+
+#given a string, output a list of all permutations
+
+def permutations(s):
+    
+    if len(s)==1:
+        return [s]
+    
+    permutations = []
+    
+    return 
