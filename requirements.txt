@@ -1,0 +1,6 @@
+gensim
+psycopg2
+sqlalchemy
+random
+os
+pandas
