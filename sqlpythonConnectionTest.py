@@ -65,3 +65,22 @@ stmt=insert(purchases_sqlal).values(id=11,item_id=7,customer_id=20,valid=True)
 
 #execute query
 new_result=conn.execute(stmt)
+##############################################################################################
+
+# getting table from postgres and creating pandas data frame
+import pandas as pd
+from sqlalchemy import create_engine, MetaData, Table
+
+# establish connection
+engine = create_engine('postgresql+psycopg2://postgres:password@localhost:####/Regents Exams DataBase')
+
+# connection
+conn = engine.connect()
+
+metadata = MetaData()
+geometry = Table('Geometry',metadata, autoload=True, autoload_with=engine)
+
+# assign query to a variable with python sqlalchemy select
+results = conn.execute(result).fetchall()
+
+geo = pd.DataFrame(results,columns=geometry.columns.keys())
