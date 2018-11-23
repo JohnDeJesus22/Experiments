@@ -27,7 +27,7 @@ def predict_iris():
 @app.route('/predict_file', methods = ['POST'])
 def predict_iris_file():
     
-    input_data = pd.read_csv(request.files.get('input_file'), header = None, encoding ='latin1')
+    input_data = pd.read_csv(request.files.get('input_data'), header = None, encoding ='latin1')
     predictions = model.predict(input_data)
     return str(list(predictions))
     
